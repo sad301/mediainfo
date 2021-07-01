@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="footer" fx:controller="com.sad301.mediainfo.gui.FooterController" xmlns:fx="http://javafx.com/fxml">
+  <stylesheets>
+    <java.net.URL value="@style.css"/>
+  </stylesheets>
+  <center>
+    <HBox>
+      <Label text="Running Text"/>
+    </HBox>
+  </center>
+  <right>
+    <VBox alignment="CENTER" style="-fx-background-color: darkgray">
+      <padding>
+        <Insets topRightBottomLeft="10"/>
+      </padding>
+      <Label id="time" fx:id="lTime"/>
+      <Label id="date" fx:id="lDate"/>
+    </VBox>
+  </right>
+</BorderPane>

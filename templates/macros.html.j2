@@ -1,11 +1,11 @@
 {% macro ui_sidebar(active_item="Home") %}
-  {% set items = [("Home", "/admin/home", "home icon")] %}
+  {% set items = [("Home", "/admin/home", "home icon"),("User", "/admin/user", "user icon")] %}
   <div class="ui inverted vertical borderless sidebar menu">
     {% for item in items %}
       {% if item[0] == active_item %}
         <div class="active item">{{ item[0] }}<i class="{{ item[2] }}"></i></div>
       {% else %}
-        <a href="{{ item[1] }}">{{ item[0] }}<i class="{{ item[2] }}"></i></a>
+        <a href="{{ item[1] }}" class="item">{{ item[0] }}<i class="{{ item[2] }}"></i></a>
       {% endif %}
     {% endfor %}
   </div>

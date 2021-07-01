@@ -1,0 +1,12 @@
+#footer {
+  -fx-background-color: lightgray;
+}
+
+#footer Label {
+  -fx-text-fill: #fff;
+}
+
+#footer #time {
+  -fx-font-size: 18;
+  -fx-font-weight: bold;
+}

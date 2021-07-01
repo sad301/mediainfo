@@ -1,0 +1,55 @@
+{% extends "layout.html.j2" %}
+
+{% block title %}
+  <title>Media Informasi</title>
+{% endblock %}
+
+{% block content %}
+  {% import "macros.html.j2" as macros %}
+  {% call macros.ui_sidebar("Users") %}
+    {{ top_menu() }}
+    <div class="ui stackable three column middle aligned grid" style="padding-top: 5em">
+      <div class="column"></div>
+      <div class="column">
+        <h1 class="ui center aligned header">Perbaharui Akun</h1>
+        <div class="ui top attached icon message">
+          <i class="info circle icon"></i>
+          <div class="content">
+            <div class="header">Informasi</div>
+            <p>Nanti ada informasi disini</p>
+          </div>
+        </div>
+        <div class="ui small bottom attached padded form segment">
+          <div class="field">
+            <label>Password baru :</label>
+            <div class="ui left icon success input">
+              <input type="password" name="new-password" placeholder="Password baru">
+              <i class="key icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <input type="password" name="confirm-password" placeholder="Konfirmasi password baru">
+              <i class="key icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password Saat Ini :</label>
+            <div class="ui left icon input">
+              <input type="password" name="current-password" placeholder="Password saat ini">
+              <i class="key icon"></i>
+            </div>
+          </div>
+          <button class="ui small labeled icon primary button" type="button" name="button"><i class="send icon"></i>Kirim</button>
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
+  {% endcall %}
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    $('.sidebar.item').click((e) => $('.ui.sidebar').sidebar('toggle'));
+  </script>
+{% endblock %}

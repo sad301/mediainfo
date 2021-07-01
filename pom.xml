@@ -16,6 +16,11 @@
       <version>16</version>
     </dependency>
     <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>16</version>
+    </dependency>
+    <dependency>
       <groupId>com.sparkjava</groupId>
       <artifactId>spark-core</artifactId>
       <version>2.9.3</version>
@@ -45,6 +50,45 @@
         <configuration>
           <release>16</release>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>clean</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <delete file="mediainfo.db"/>
+              </target>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- exec plugin -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>sqlite3</executable>
+              <arguments>
+                <argument>mediainfo.db</argument>
+                <argument>".read src/main/sql/mediainfo.sql"</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.openjfx</groupId>
