@@ -84,7 +84,7 @@
               <executable>sqlite3</executable>
               <arguments>
                 <argument>mediainfo.db</argument>
-                <argument>".read src/main/sql/mediainfo.sql"</argument>
+                <argument>.read src/main/sql/mediainfo.sql</argument>
               </arguments>
             </configuration>
           </execution>
