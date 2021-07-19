@@ -57,35 +57,48 @@
         <version>3.0.0</version>
         <executions>
           <execution>
-            <phase>clean</phase>
+            <id>delete-database</id>
+            <!-- <phase>clean</phase> -->
             <goals>
               <goal>run</goal>
             </goals>
             <configuration>
               <target>
-                <delete file="mediainfo.db"/>
+                <delete dir="database"/>
+              </target>
+            </configuration>
+          </execution>
+          <execution>
+            <id>create-database</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <target>
+                <delete dir="database"/>
+                <mkdir dir="database"/>
+                <exec executable="sqlite3">
+                  <arg value="database/mediainfo.db"/>
+                  <arg value=".read src/main/sql/mediainfo.sql"/>
+                </exec>
               </target>
             </configuration>
           </execution>
         </executions>
       </plugin>
-      <!-- exec plugin -->
+      <!-- exec-plugin -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>3.0.0</version>
         <executions>
           <execution>
-            <phase>compile</phase>
+            <id>exec-server</id>
             <goals>
-              <goal>exec</goal>
+              <goal>java</goal>
             </goals>
             <configuration>
-              <executable>sqlite3</executable>
-              <arguments>
-                <argument>mediainfo.db</argument>
-                <argument>.read src/main/sql/mediainfo.sql</argument>
-              </arguments>
+              <mainClass>com.sad301.mediainfo/com.sad301.mediainfo.server.App</mainClass>
             </configuration>
           </execution>
         </executions>

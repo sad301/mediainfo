@@ -1,43 +1,54 @@
 package com.sad301.mediainfo;
 
-import com.sad301.mediainfo.gui.*;
+import com.sad301.mediainfo.controller.*;
+
+import java.net.*;
+
 import javafx.application.*;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import javafx.stage.*;
 
 /**
 * JavaFX App
 */
 public class App extends Application {
 
-  private HttpServer httpServer = new HttpServer(8000);
-  private MainPane root;
+  private BorderPane frontPane;
+  private FrontPaneController frontPaneController;
 
   @Override
-  public void init() {
-    // httpServer.start();
+  public void init() throws Exception {
+    loadFrontPane();
   }
 
   @Override
   public void start(Stage stage) throws Exception {
-    root = new MainPane();
-    Scene scene = new Scene(root, 640, 480);
+    Scene scene = new Scene(frontPane, 640, 480);
     scene.setOnKeyPressed(e -> {
       switch(e.getCode()) {
         case F -> stage.setFullScreen(!stage.isFullScreen());
         case Q -> Platform.exit();
       }
     });
+    stage.setTitle("MediaInfo");
     stage.setScene(scene);
+    stage.setOnShown(e -> frontPaneController.startTimer());
     stage.show();
   }
 
   @Override
-  public void stop() {
-    // httpServer.stop();
-    root.stop();
+  public void stop() throws Exception {
+    frontPaneController.stopTimer();
+  }
+
+  private void loadFrontPane() throws Exception {
+    URL url = getClass().getResource("/com/sad301/mediainfo/fxml/front_pane.fxml");
+    FXMLLoader loader = new FXMLLoader(url);
+    frontPane = loader.load();
+    frontPaneController = loader.getController();
   }
 
   public static void main(String[] args) {

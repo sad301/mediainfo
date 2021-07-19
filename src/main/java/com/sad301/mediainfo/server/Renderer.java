@@ -1,4 +1,4 @@
-package com.sad301.mediainfo;
+package com.sad301.mediainfo.server;
 
 import com.hubspot.jinjava.*;
 import java.io.*;
@@ -7,15 +7,14 @@ import java.nio.charset.*;
 import java.util.*;
 import org.apache.commons.io.*;
 
-public class JinjavaRenderer {
+public class Renderer {
 
-  public static String defaultRender(String filename) {
-    Map<String, Object> model = new HashMap<>();
-    return defaultRender(model, filename);
+  public static String renderExternal(String basedir, String filename) {
+    return renderExternal(basedir, new HashMap<>(), filename);
   }
 
-  public static String defaultRender(Map<String, Object> model, String filename) {
-    JinjavaRenderer r = new JinjavaRenderer(JinjavaRenderer.EXTERNAL_RESOURCE, "templates");
+  public static String renderExternal(String basedir, Map<String, Object> model, String filename) {
+    Renderer r = new Renderer(Renderer.EXTERNAL_RESOURCE, basedir);
     String html = null;
     try {
       html = r.render(model, filename);
@@ -31,10 +30,9 @@ public class JinjavaRenderer {
 
   private final int resource;
   private final String basedir;
-
   private Jinjava jinjava;
 
-  public JinjavaRenderer(int resource, String basedir) {
+  public Renderer(int resource, String basedir) {
     this.resource = resource;
     this.basedir = basedir;
     init();

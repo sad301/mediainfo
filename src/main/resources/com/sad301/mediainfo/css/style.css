@@ -1,0 +1,22 @@
+.footer {
+  -fx-background-color: linear-gradient(to bottom, gray, black);
+}
+
+.footer .timer {
+  -fx-alignment: center;
+  -fx-padding: 10;
+  -fx-spacing: -7px;
+}
+
+.footer .timer Label {
+  -fx-text-fill: #fff;
+}
+
+.footer .timer #label-date {
+  -fx-font-weight: bold;
+  -fx-font-size: 14pt;
+}
+
+.footer .timer #label-time {
+  -fx-font-size: 13pt;
+}
