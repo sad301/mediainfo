@@ -4,6 +4,10 @@
   <title>Media Informasi</title>
 {% endblock %}
 
+{% block ext_script %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.js" charset="utf-8"></script>
+{% endblock %}
+
 {% block content %}
   <div class="ui stackable three column middle aligned grid" style="height: 100vh">
     <div class="column"></div>
@@ -44,23 +48,5 @@
 
 {% block script %}
   <script type="text/javascript" id="params" data-domain="{{ domain }}"></script>
-  <script type="text/javascript">
-    $('input').focus(function (e) {
-      $(e.target).closest('.field').removeClass('error');
-    });
-    $('.ui.primary.button').click(function() {
-      let username = $('input[name="username"]');
-      let password = $('input[name="password"]');
-      [username, password].forEach(el => {
-        if(el.val() == '') el.closest('.field').addClass('error');
-      });
-      if(username.val() == '' || password.val() == '') return false;
-      let auth = {
-        username: username.val(),
-        url: `http://${$('#params').data('domain')}/api/login`,
-        timestamp: Date.now()
-      };
-      console.log(auth);
-    });
-  </script>
+  <script type="text/javascript">_.q($('#params')).index.init();</script>
 {% endblock %}

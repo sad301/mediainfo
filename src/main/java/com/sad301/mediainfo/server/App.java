@@ -1,18 +1,38 @@
 package com.sad301.mediainfo.server;
 
-import java.sql.*;
-import java.util.*;
-import spark.*;
+import com.sad301.mediainfo.dao.ConfigDAO;
+import spark.Service;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class App {
 
   private final int port;
   private Renderer renderer;
   private Service service;
+  private Connection connection;
+  private ConfigDAO configDAO;
 
   public App(int port) {
     this.port = port;
+    initDatabase();
     initRenderer();
+  }
+
+  private void initDatabase() {
+    try {
+      DriverManager.registerDriver(new org.sqlite.JDBC());
+      connection = DriverManager.getConnection("jdbc:sqlite:database/mediainfo.db");
+      configDAO = new ConfigDAO(connection);
+      configDAO.init();
+    }
+    catch (SQLException exc) {
+      exc.printStackTrace();
+    }
   }
 
   private void initRenderer() {
@@ -35,10 +55,16 @@ public class App {
       res.header("Content-Type", "application/json");
       return "{\"message\":\"hello world\"}";
     });
+    service.post("/api/login", new LoginHandler(this));
   }
 
-  public void stop() {
+  public void stop() throws Exception {
+    configDAO.stop();
     service.stop();
+  }
+
+  protected ConfigDAO getConfigDAO() {
+    return configDAO;
   }
 
   public static void main(String[] args) {

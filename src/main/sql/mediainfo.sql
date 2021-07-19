@@ -5,5 +5,5 @@ create table config (
 );
 
 insert into config values
-  ("user.userame", "admin"),
+  ("user.username", "admin"),
   ("user.password", "nimda");
