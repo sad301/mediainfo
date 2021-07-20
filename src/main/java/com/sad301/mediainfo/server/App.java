@@ -17,6 +17,7 @@ public class App {
   private Connection connection;
   private ConfigDAO configDAO;
   private ApiRoutes apiRoutes;
+  private MainRoutes mainRoutes;
 
   public App(int port) {
     this.port = port;
@@ -26,6 +27,7 @@ public class App {
   }
 
   private void initRoutes() {
+    mainRoutes = new MainRoutes(this);
     apiRoutes = new ApiRoutes(this);
   }
 
@@ -47,18 +49,11 @@ public class App {
 
   public void start() {
     service = Service.ignite().externalStaticFileLocation("statics").port(port);
-    service.get("/", (req, res) -> {
-      String token = req.cookie("Token");
-      System.out.println(token);
-      Map<String, Object> model = new HashMap<>();
-      model.put("domain", "127.0.0.1:8000");
-      return renderer.render(model, "index.html.j2");
-    });
-    service.get("/home", (req, res) -> renderer.render("home.html.j2"));
-    service.get("/stop", (req, res) -> {
-      stop();
-      return "Stopped";
-    });
+    // --- Main Routes ---
+    service.get("/", mainRoutes.index());
+    service.get("/home", mainRoutes.home());
+    service.get("/stop", mainRoutes.stop());
+    // --- API Routes ---
     service.get("/api", apiRoutes.index());
     service.get("/api/configs", apiRoutes.configs());
     service.post("/api/login", new LoginHandler(this));
@@ -67,6 +62,10 @@ public class App {
   public void stop() throws Exception {
     configDAO.stop();
     service.stop();
+  }
+
+  protected Renderer getRenderer() {
+    return renderer;
   }
 
   protected ConfigDAO getConfigDAO() {
