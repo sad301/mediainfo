@@ -16,11 +16,17 @@ public class App {
   private Service service;
   private Connection connection;
   private ConfigDAO configDAO;
+  private ApiRoutes apiRoutes;
 
   public App(int port) {
     this.port = port;
+    initRoutes();
     initDatabase();
     initRenderer();
+  }
+
+  private void initRoutes() {
+    apiRoutes = new ApiRoutes(this);
   }
 
   private void initDatabase() {
@@ -42,6 +48,8 @@ public class App {
   public void start() {
     service = Service.ignite().externalStaticFileLocation("statics").port(port);
     service.get("/", (req, res) -> {
+      String token = req.cookie("Token");
+      System.out.println(token);
       Map<String, Object> model = new HashMap<>();
       model.put("domain", "127.0.0.1:8000");
       return renderer.render(model, "index.html.j2");
@@ -51,10 +59,8 @@ public class App {
       stop();
       return "Stopped";
     });
-    service.get("/api", (req, res) -> {
-      res.header("Content-Type", "application/json");
-      return "{\"message\":\"hello world\"}";
-    });
+    service.get("/api", apiRoutes.index());
+    service.get("/api/configs", apiRoutes.configs());
     service.post("/api/login", new LoginHandler(this));
   }
 

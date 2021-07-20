@@ -57,8 +57,10 @@ public class Config {
 
     public enum Key {
 
-        USER_USERNAME ("user.username"),
-        USER_PASSWORD ("user.password");
+        USER_USERNAME       ("user.username"),
+        USER_PASSWORD       ("user.password"),
+        USER_TOKEN_VALUE    ("user.token.value"),
+        USER_TOKEN_CREATED  ("user.token.created");
 
         private final String name;
 
