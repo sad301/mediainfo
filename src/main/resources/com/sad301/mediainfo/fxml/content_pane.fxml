@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane gridLinesVisible="true">
+  <Text GridPane.rowIndex="0" GridPane.columnIndex="0" text="Hello"/>
+  <Text GridPane.rowIndex="0" GridPane.columnIndex="1" text="World"/>
+</GridPane>

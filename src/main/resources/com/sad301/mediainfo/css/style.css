@@ -1,27 +1,46 @@
+.root {
+  -fx-background-color: linear-gradient(to bottom, lightgreen, green);
+}
+
 .header {
-  -fx-padding: 10;
+  -fx-padding: 20;
+  -fx-background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header Text {
+  -fx-fill: #fff;
+  -fx-effect: dropshadow(gaussian, darkgray, 10, 0.2, 1, 1);
+}
+
+.header #company-name {
+  -fx-font-size: 18pt;
+  -fx-font-weight: bold;
+}
+
+.header #company-address {
+  -fx-font-size: 16pt;
 }
 
 .footer {
-  -fx-background-color: linear-gradient(to bottom, gray, black);
+  -fx-border-width: 1px;
+  -fx-border-style: solid;
 }
 
 .footer .timer {
+  -fx-padding: 10 20 20 0;
   -fx-alignment: center;
-  -fx-padding: 10;
-  -fx-spacing: -7px;
+  -fx-spacing: -6px;
 }
 
 .footer .timer Text {
-  -fx-text-fill: #fff;
+  -fx-fill: #fff;
 }
 
 .footer .timer #text-date {
-  -fx-text-color: #fff;
+  -fx-font-size: 18pt;
   -fx-font-weight: bold;
-  -fx-font-size: 14pt;
 }
 
 .footer .timer #text-time {
-  -fx-font-size: 13pt;
+  -fx-font-size: 16pt;
 }

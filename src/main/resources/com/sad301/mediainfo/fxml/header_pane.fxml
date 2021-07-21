@@ -7,6 +7,6 @@
   <stylesheets>
     <java.net.URL value="@../css/style.css"/>
   </stylesheets>
-  <Text fx:id="txtCompanyName"/>
-  <Text fx:id="txtCompanyAddress"/>
+  <Text id="company-name" fx:id="txtCompanyName"/>
+  <Text id="company-address" fx:id="txtCompanyAddress"/>
 </VBox>

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.sad301.mediainfo.controller.FrontPaneController">
+<BorderPane styleClass="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sad301.mediainfo.controller.FrontPaneController">
   <stylesheets>
     <java.net.URL value="@../css/style.css"/>
   </stylesheets>
@@ -12,7 +12,15 @@
     <fx:include fx:id="headerPane" source="header_pane.fxml"/>
   </top>
   <center>
-    <Label text="Hello World"/>
+    <VBox style="-fx-padding: 10 20 10 20">
+      <TableView VBox.vgrow="ALWAYS">
+        <columns>
+          <TableColumn text="Hello"/>
+          <TableColumn text="World"/>
+          <TableColumn text="Sample"/>
+        </columns>
+      </TableView>
+    </VBox>
   </center>
   <bottom>
     <fx:include fx:id="footerPane" source="footer_pane.fxml"/>
