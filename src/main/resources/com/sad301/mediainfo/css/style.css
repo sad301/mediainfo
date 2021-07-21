@@ -1,3 +1,7 @@
+.header {
+  -fx-padding: 10;
+}
+
 .footer {
   -fx-background-color: linear-gradient(to bottom, gray, black);
 }
@@ -8,15 +12,16 @@
   -fx-spacing: -7px;
 }
 
-.footer .timer Label {
+.footer .timer Text {
   -fx-text-fill: #fff;
 }
 
-.footer .timer #label-date {
+.footer .timer #text-date {
+  -fx-text-color: #fff;
   -fx-font-weight: bold;
   -fx-font-size: 14pt;
 }
 
-.footer .timer #label-time {
+.footer .timer #text-time {
   -fx-font-size: 13pt;
 }

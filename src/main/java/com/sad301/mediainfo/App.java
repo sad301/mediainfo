@@ -1,8 +1,11 @@
 package com.sad301.mediainfo;
 
 import com.sad301.mediainfo.controller.*;
+import com.sad301.mediainfo.dao.*;
+import com.sad301.mediainfo.server.*;
 
 import java.net.*;
+import java.sql.*;
 
 import javafx.application.*;
 import javafx.fxml.*;
@@ -18,6 +21,7 @@ public class App extends Application {
 
   private BorderPane frontPane;
   private FrontPaneController frontPaneController;
+  private com.sad301.mediainfo.server.App httpServer;
 
   @Override
   public void init() throws Exception {
@@ -35,13 +39,13 @@ public class App extends Application {
     });
     stage.setTitle("MediaInfo");
     stage.setScene(scene);
-    stage.setOnShown(e -> frontPaneController.startTimer());
+    stage.setOnShown(e -> frontPaneController.start());
     stage.show();
   }
 
   @Override
   public void stop() throws Exception {
-    frontPaneController.stopTimer();
+    frontPaneController.stop();
   }
 
   private void loadFrontPane() throws Exception {
@@ -52,7 +56,7 @@ public class App extends Application {
   }
 
   public static void main(String[] args) {
-    launch();
+    launch(args);
   }
 
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox styleClass="header" xmlns:fx="http://javafx.com/fxml" fx:controller="com.sad301.mediainfo.controller.HeaderPaneController">
+  <stylesheets>
+    <java.net.URL value="@../css/style.css"/>
+  </stylesheets>
+  <Text fx:id="txtCompanyName"/>
+  <Text fx:id="txtCompanyAddress"/>
+</VBox>

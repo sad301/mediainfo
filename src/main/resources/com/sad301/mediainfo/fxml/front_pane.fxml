@@ -2,23 +2,19 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.sad301.mediainfo.controller.FrontPaneController">
   <stylesheets>
     <java.net.URL value="@../css/style.css"/>
   </stylesheets>
+  <top>
+    <fx:include fx:id="headerPane" source="header_pane.fxml"/>
+  </top>
   <center>
     <Label text="Hello World"/>
   </center>
   <bottom>
-    <!-- footer -->
-    <BorderPane styleClass="footer">
-      <right>
-        <VBox styleClass="timer">
-          <Label id="label-date" fx:id="lDate" text="Tanggal"/>
-          <Label id="label-time" fx:id="lTime" text="Waktu"/>
-        </VBox>
-      </right>
-    </BorderPane>
+    <fx:include fx:id="footerPane" source="footer_pane.fxml"/>
   </bottom>
 </BorderPane>

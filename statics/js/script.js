@@ -40,6 +40,20 @@ function _(params) {
     });
   };
 
+  this.home = {};
+  this.home.init = () => {
+    $('.sidebar.item').click(() => {
+      $('.ui.sidebar.menu').sidebar('toggle');
+    });
+  };
+
+  this.config = {};
+  this.config.init = () => {
+    $('.sidebar.item').click(() => {
+      $('.ui.sidebar.menu').sidebar('toggle');
+    });
+  };
+
 }
 
 _.q = function (params) { return new _(params); };

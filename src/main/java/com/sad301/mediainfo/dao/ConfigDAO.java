@@ -3,6 +3,7 @@ package com.sad301.mediainfo.dao;
 import com.sad301.mediainfo.model.Config;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,23 @@ import java.util.List;
 import java.util.Map;
 
 public class ConfigDAO implements DAO<Config> {
+
+  public static Map<Config.Key, String> retrieveAsMap2() {
+    Map<Config.Key, String> map = new HashMap<>();
+    try {
+      DriverManager.registerDriver(new org.sqlite.JDBC());
+      Connection c = DriverManager.getConnection("jdbc:sqlite:database/mediainfo.db");
+      ConfigDAO dao = new ConfigDAO(c);
+      dao.init();
+      map = dao.retrieveAsMap();
+      dao.close();
+      c.close();
+    }
+    catch(SQLException exc) {
+      exc.printStackTrace();
+    }
+    return map;
+  }
 
   private final Connection connection;
   private PreparedStatement psCreate, psRetrieve, psUpdate, psDelete;
@@ -69,7 +87,7 @@ public class ConfigDAO implements DAO<Config> {
   }
 
   @Override
-  public void stop() throws SQLException {
+  public void close() throws SQLException {
     psCreate.close();
     psRetrieve.close();
     psUpdate.close();

@@ -1,0 +1,49 @@
+{% extends "layout.html.j2" %}
+
+{% block title %}
+  <title>Media Informasi - Konfigurasi</title>
+{% endblock %}
+
+{% block content %}
+  {% import "macros.html.j2" as macros %}
+  {% call macros.ui_sidebar("Content") %}
+    {{ top_menu() }}
+    <div class="ui stackable grid" style="padding-top: 5em">
+      <div class="three wide column"></div>
+      <div class="ten wide column">
+        <h1 class="ui header">Content</h1>
+        <table class="ui four column celled table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Duration</th>
+              <th>Content</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>asd</td>
+              <td>asd</td>
+              <td>asd</td>
+              <td>asd</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4">
+                <button type="button" name="button" class="ui small labeled icon primary button"><i class="plus circle icon"></i>New</button>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  {% endcall %}
+{% endblock %}
+
+{% block script %}
+  <script type="text/javascript">
+    _.q().config.init();
+  </script>
+{% endblock %}

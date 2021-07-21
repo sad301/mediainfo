@@ -38,6 +38,30 @@ public class MainRoutes {
     };
   }
 
+  public Route content() {
+    return (req, res) -> {
+      if (tokenValid(req)) {
+        return app.getRenderer().render("content.html.j2");
+      }
+      else {
+        res.redirect("/");
+        return "redirect";
+      }
+    };
+  }
+
+  public Route config() {
+    return (req, res) -> {
+      if (tokenValid(req)) {
+        return app.getRenderer().render("config.html.j2");
+      }
+      else {
+        res.redirect("/");
+        return "redirect";
+      }
+    };
+  }
+
   public Route stop() {
     return (req, res) -> {
       app.stop();

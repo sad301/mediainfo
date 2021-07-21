@@ -52,15 +52,18 @@ public class App {
     // --- Main Routes ---
     service.get("/", mainRoutes.index());
     service.get("/home", mainRoutes.home());
+    service.get("/content", mainRoutes.content());
+    service.get("/config", mainRoutes.config());
     service.get("/stop", mainRoutes.stop());
     // --- API Routes ---
     service.get("/api", apiRoutes.index());
     service.get("/api/configs", apiRoutes.configs());
+    service.get("/api/configs/keys", apiRoutes.configKeys());
     service.post("/api/login", new LoginHandler(this));
   }
 
   public void stop() throws Exception {
-    configDAO.stop();
+    configDAO.close();
     service.stop();
   }
 

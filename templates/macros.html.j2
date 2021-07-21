@@ -1,5 +1,9 @@
 {% macro ui_sidebar(active_item="Home") %}
-  {% set items = [("Home", "/admin/home", "home icon"),("User", "/admin/user", "user icon")] %}
+  {% set items = [
+    ("Home",    "/home",    "home icon"),
+    ("Content", "/content", "image icon"),
+    ("Settings",  "/config",  "cog icon")
+  ] %}
   <div class="ui inverted vertical borderless sidebar menu">
     {% for item in items %}
       {% if item[0] == active_item %}
