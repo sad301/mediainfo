@@ -23,7 +23,7 @@ public class TestConfigDAO {
             System.out.println(row.getKey());
             System.out.println(row.getValue());
         }
-        dao.stop();
+        dao.close();
     }
 
     public void testRetrieveAsMap() throws SQLException {
@@ -34,6 +34,6 @@ public class TestConfigDAO {
             System.out.println(k.toString());
             System.out.println(map.get(k));
         });
-        dao.stop();
+        dao.close();
     }
 }

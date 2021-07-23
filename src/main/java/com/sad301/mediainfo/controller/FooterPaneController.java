@@ -1,12 +1,12 @@
 package com.sad301.mediainfo.controller;
 
-import java.time.*;
-import java.time.format.*;
-import java.util.*;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 
-import javafx.application.*;
-import javafx.fxml.*;
-import javafx.scene.text.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class FooterPaneController {
 
@@ -14,8 +14,8 @@ public class FooterPaneController {
 
   public void start() {
     Thread t = new Thread(() -> {
-      DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("dd MMMM yyyy", new Locale("id"));
-      DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm:ss");
+      DateTimeFormatter fmtDate = DateTimeFormatter.ofPattern("dd/MM", new Locale("id"));
+      DateTimeFormatter fmtTime = DateTimeFormatter.ofPattern("HH:mm");
       while(loop) {
         LocalDateTime now = LocalDateTime.now();
         Platform.runLater(() -> {
@@ -23,7 +23,7 @@ public class FooterPaneController {
           txtTime.setText(now.format(fmtTime));
         });
         try {
-          Thread.sleep(500);
+          Thread.sleep(1000);
         }
         catch(InterruptedException exc) {
           exc.printStackTrace();

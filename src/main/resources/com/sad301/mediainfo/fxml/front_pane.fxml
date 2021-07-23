@@ -12,15 +12,7 @@
     <fx:include fx:id="headerPane" source="header_pane.fxml"/>
   </top>
   <center>
-    <VBox style="-fx-padding: 10 20 10 20">
-      <TableView VBox.vgrow="ALWAYS">
-        <columns>
-          <TableColumn text="Hello"/>
-          <TableColumn text="World"/>
-          <TableColumn text="Sample"/>
-        </columns>
-      </TableView>
-    </VBox>
+    <fx:include fx:id="contentPane" source="content_pane.fxml"/>
   </center>
   <bottom>
     <fx:include fx:id="footerPane" source="footer_pane.fxml"/>

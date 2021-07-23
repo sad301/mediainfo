@@ -1,0 +1,66 @@
+.root {
+  -fx-background-color: linear-gradient(to top, lightgreen, darkgreen);
+}
+
+.header {
+  -fx-padding: 20;
+}
+
+.header Text {
+  -fx-font-smoothing-type: lcd;
+  -fx-fill: #fff;
+}
+
+.header #comp-name {
+  -fx-font-size: 25pt;
+  -fx-font-weight: bold;
+}
+
+.header #comp-address {
+  -fx-font-size: 15pt;
+}
+
+.content {
+  /* -fx-border-width: 1px; */
+  /* -fx-border-style: solid; */
+  -fx-alignment: center;
+  -fx-hgap: 30;
+}
+
+.program-studi {
+  /* -fx-border-width: 1px; */
+  /* -fx-border-style: solid; */
+  -fx-spacing: 15;
+  -fx-alignment: center;
+  -fx-background-color: rgba(0, 128, 255, 0.7);
+  -fx-padding: 15;
+  -fx-background-radius: 15;
+}
+
+.nama-program-studi {
+  -fx-font-size: 14pt;
+  -fx-font-weight: bold;
+}
+
+.mata-kuliah {
+  -fx-background-color: rgba(255, 255, 255, 0.5);
+  -fx-padding: 20 50 20 50;
+}
+
+.mata-kuliah Text {
+  -fx-font-size: 20pt;
+}
+
+.footer {
+  -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer .timer {
+  -fx-padding: 20;
+  -fx-alignment: center;
+}
+
+.footer Text {
+  -fx-font-size: 30pt;
+  -fx-font-weight: bold;
+}

@@ -1,46 +1,66 @@
 .root {
-  -fx-background-color: linear-gradient(to bottom, lightgreen, green);
+  -fx-background-color: linear-gradient(to bottom, darkgreen, green, lightgreen);
 }
 
 .header {
   -fx-padding: 20;
-  -fx-background-color: rgba(0, 0, 0, 0.3);
 }
 
 .header Text {
   -fx-fill: #fff;
-  -fx-effect: dropshadow(gaussian, darkgray, 10, 0.2, 1, 1);
 }
 
 .header #company-name {
-  -fx-font-size: 18pt;
+  -fx-font-size: 20pt;
   -fx-font-weight: bold;
 }
 
 .header #company-address {
-  -fx-font-size: 16pt;
+  -fx-font-size: 13pt;
 }
 
-.footer {
-  -fx-border-width: 1px;
-  -fx-border-style: solid;
+.content {
+  -fx-padding: 0 20 0 20;
 }
 
 .footer .timer {
-  -fx-padding: 10 20 20 0;
   -fx-alignment: center;
-  -fx-spacing: -6px;
+  -fx-padding: 20;
 }
 
 .footer .timer Text {
-  -fx-fill: #fff;
+  -fx-fill: #000;
 }
 
 .footer .timer #text-date {
-  -fx-font-size: 18pt;
+  -fx-font-size: 16pt;
   -fx-font-weight: bold;
 }
 
 .footer .timer #text-time {
-  -fx-font-size: 16pt;
+  -fx-font-size: 20pt;
+  -fx-font-weight: bold;
+}
+
+.table-view {
+  -fx-background-color: rgba(255, 255, 255, 0.2);
+  -fx-background-radius: 5px;
+}
+
+.column-header {
+  -fx-font-size: 12pt;
+  -fx-fill: #fff;
+  -fx-background-color: transparent;
+}
+
+.column-header Label {
+  -fx-text-fill: rgba(255, 255, 255, 0.5);
+}
+
+.column-header-background {
+  -fx-background-color: transparent;
+}
+
+.filler {
+  -fx-background-color: transparent;
 }

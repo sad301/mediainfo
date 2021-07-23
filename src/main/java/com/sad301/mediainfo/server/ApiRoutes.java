@@ -1,18 +1,13 @@
 package com.sad301.mediainfo.server;
 
-import com.sad301.mediainfo.model.*;
+import com.sad301.mediainfo.model.Config;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import spark.Route;
 
-import java.util.*;
-import org.json.*;
-import spark.*;
+import java.util.List;
 
-public class ApiRoutes {
-
-  private App app;
-
-  public ApiRoutes(App app) {
-    this.app = app;
-  }
+public record ApiRoutes(App app) {
 
   public Route index() {
     return (req, res) -> {

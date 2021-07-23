@@ -1,15 +1,6 @@
 package com.sad301.mediainfo.controller;
 
-import com.sad301.mediainfo.*;
-
-import java.time.*;
-import java.time.format.*;
-import java.util.*;
-
-import javafx.application.*;
 import javafx.fxml.*;
-import javafx.scene.control.*;
-import javafx.scene.text.*;
 
 public class FrontPaneController {
 

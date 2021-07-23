@@ -15,7 +15,7 @@ public class Renderer {
 
   public static String renderExternal(String basedir, Map<String, Object> model, String filename) {
     Renderer r = new Renderer(Renderer.EXTERNAL_RESOURCE, basedir);
-    String html = null;
+    String html;
     try {
       html = r.render(model, filename);
     }

@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane gridLinesVisible="true">
-  <Text GridPane.rowIndex="0" GridPane.columnIndex="0" text="Hello"/>
-  <Text GridPane.rowIndex="0" GridPane.columnIndex="1" text="World"/>
-</GridPane>
+<VBox styleClass="content">
+  <stylesheets>
+    <java.net.URL value="@../css/style.css"/>
+  </stylesheets>
+  <TableView VBox.vgrow="ALWAYS">
+    <columns>
+      <TableColumn text="Kode"/>
+      <TableColumn text="Mata Kuliah"/>
+      <TableColumn text="Program Studi"/>
+      <TableColumn text="Semester"/>
+    </columns>
+  </TableView>
+</VBox>

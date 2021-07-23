@@ -7,14 +7,26 @@
 {% block content %}
   {% import "macros.html.j2" as macros %}
   {% call macros.ui_sidebar("Settings") %}
-    {{ top_menu() }}
-    <div class="ui stackable three column middle aligned grid" style="padding-top: 5em">
-      <div class="column"></div>
-      <div class="column">
+    {{ macros.top_menu() }}
+    <div class="ui stackable grid" style="padding-top: 5em">
+      <div class="four wide column"></div>
+      <div class="eight wide column">
         <h1 class="ui header">Konfigurasi</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <table class="ui two column unstackable celled table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="column"></div>
     </div>
   {% endcall %}
 {% endblock %}

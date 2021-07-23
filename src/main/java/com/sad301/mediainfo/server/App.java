@@ -6,15 +6,12 @@ import spark.Service;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class App {
 
   private final int port;
   private Renderer renderer;
   private Service service;
-  private Connection connection;
   private ConfigDAO configDAO;
   private ApiRoutes apiRoutes;
   private MainRoutes mainRoutes;
@@ -34,7 +31,7 @@ public class App {
   private void initDatabase() {
     try {
       DriverManager.registerDriver(new org.sqlite.JDBC());
-      connection = DriverManager.getConnection("jdbc:sqlite:database/mediainfo.db");
+      Connection connection = DriverManager.getConnection("jdbc:sqlite:database/mediainfo.db");
       configDAO = new ConfigDAO(connection);
       configDAO.init();
     }

@@ -1,16 +1,13 @@
 package com.sad301.mediainfo.server;
 
-import com.sad301.mediainfo.model.*;
-import java.util.*;
-import spark.*;
+import com.sad301.mediainfo.model.Config;
+import spark.Request;
+import spark.Route;
 
-public class MainRoutes {
+import java.util.HashMap;
+import java.util.Map;
 
-  private App app;
-
-  public MainRoutes(App app) {
-    this.app = app;
-  }
+public record MainRoutes(App app) {
 
   public Route index() {
     return (req, res) -> {

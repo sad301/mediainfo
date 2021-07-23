@@ -10,13 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Base64;
 import java.util.Map;
 
-public class LoginHandler implements Route {
-
-  private final App app;
-
-  public LoginHandler(App app) {
-    this.app = app;
-  }
+public record LoginHandler(App app) implements Route {
 
   @Override
   public Object handle(Request req, Response res) throws Exception {
