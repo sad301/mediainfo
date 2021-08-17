@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <BorderPane>
+            <left>
+                <VBox>
+                    <padding>
+                        <Insets topRightBottomLeft="10"/>
+                    </padding>
+                    <Text text="Company Name"/>
+                    <Text text="Company Address"/>
+                </VBox>
+            </left>
+        </BorderPane>
+    </top>
+</fx:root>
